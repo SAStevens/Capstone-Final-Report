@@ -7,6 +7,8 @@
     <h3>Hi {{ user.username }}! Good to have you back again.</h3>
     <br>
     <br>
+    <p><a class="btn btn-outline-primary me-2" href="{% url 'article_list' %}" role="button">
+        View all articles</a></p>
     <br>
 {% else %}
     <p><h3>Please login or signup to enter the site.</h3></p>
