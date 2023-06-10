@@ -7,9 +7,11 @@
   <p>{{ object.body }}</p>
 </div>
 <div>
-  <p><a href="{% url 'article_edit' article.pk %}">Edit</a>
-    <a href="{% url 'article_delete' article.pk %}">Delete</a>
+  {% if article.author.pk == request.user.pk %}
+  <p>
+    <a href="{% url 'article_edit' article.pk %}" class="btn btn-success ml-2">Edit</a>
+    <a href="{% url 'article_delete' article.pk %}" class="btn btn-danger ml-2">Delete</a>
   </p>
-  <p>Back to <a href="{% url 'article_list' %}">All Articles</a>.</p>
+  {% endif %}
 </div>
 {% endblock content %}
