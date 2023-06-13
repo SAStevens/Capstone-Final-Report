@@ -12,10 +12,10 @@ body {
 
 
 h1 {
-    font-size: 4em;
+    font-size: 3.75em;
     font-weight: bolder;
     color: rgb(24, 24, 255);
-    letter-spacing: 1.25rem;
+    letter-spacing: 1.0rem;
     text-align: center;
     text-shadow: 3px 2px 4px rgb(87, 87, 87);
 }
@@ -43,7 +43,7 @@ h3 {
 
 h4 {
     text-transform: uppercase;
-    text-align: start;
+    text-align: center;
     font-size: 1.5em;
     color: rgb(107, 104, 104);
     letter-spacing: 0.75rem;
@@ -110,11 +110,11 @@ h5 {
 }
 
 
-.home-pic img {
-    display: inline-block;
-    object-fit: cover;
-    object-position: center;
-    height: 63vh;
+.home-pic {
+    display: flex;
+    justify-content: center;
+    margin-top: 5em;
+    margin-bottom: 5em;
 }
 
 

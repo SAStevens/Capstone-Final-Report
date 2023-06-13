@@ -1,18 +1,59 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block title %} Old Dogs-New Tricks {% endblock title %}
 
 {% block content %}
+
+
 {% if user.is_authenticated %}
+<h1>Old Dogs-New Tricks</h1>
+<h5>Who says old dogs can't learn new tricks?</h5>
+<br>
+<br>
+
     <h3>Hi {{ user.username }}...Good to have you back again!</h3>
     <br>
     <br>
     <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
 {% else %}
-    <p><h3>Please login or signup for total access to all of the amazing, 
-        informative, and life afriming posts which are only available on the 
-        one and only...</h3>
-    </p><h2>"Old Dogs-New Tricks"</h2></p>
+    <h1>Old Dogs-New Tricks</h1>
+    <h5>Who says old dogs can't learn new tricks?</h5>
+
+    <div class="home-pic">
+        <div>
+            <img  width="700" src="{% static 'img/pic2.png' %}"> 
+        </div>
+        <div>
+            <img  width="700" src="{% static 'img/pic3.png' %}"> 
+        </div>
+    </div>
+    
 {% endif %}
+<br>
+<br>
+<br>
+
 
 {% endblock content %}
