@@ -4,11 +4,15 @@
 
 {% block content %}
 {% if user.is_authenticated %}
-    <h3>Hi {{ user.username }}! Good to have you back again.</h3>
+    <h3>Hi {{ user.username }}...Good to have you back again!</h3>
     <br>
     <br>
     <br>
 {% else %}
-    <p><h3>Please login or signup to enter 'Old Dogs-New Tricks'</h3></p>
+    <p><h3>Please login or signup for total access to all of the amazing, 
+        informative, and life afriming posts which are only available on the 
+        one and only...</h3>
+    </p><h2>"Old Dogs-New Tricks"</h2></p>
 {% endif %}
+
 {% endblock content %}

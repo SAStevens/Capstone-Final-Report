@@ -5,13 +5,11 @@
     }
 }
 
-html * {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
 
 body {
     background-color: lightgray;
 }
+
 
 h1 {
     font-size: 4em;
@@ -22,14 +20,26 @@ h1 {
     text-shadow: 3px 2px 4px rgb(87, 87, 87);
 }
 
+
 h2 {
-    font-size: 2em;
+    font-size: 3em;
     font-weight: bolder;
     color: rgb(24, 24, 255);
     letter-spacing: 1.25rem;
     text-align: center;
     text-shadow: 3px 2px 4px rgb(87, 87, 87);
 }
+
+
+h3 {
+    font-size: 2em;
+    font-weight: bolder;
+    color: rgb(24, 24, 255);
+    letter-spacing: 1.0rem;
+    text-align: center;
+    text-shadow: 3px 2px 4px rgb(87, 87, 87);
+}
+
 
 h4 {
     text-transform: uppercase;
@@ -40,6 +50,7 @@ h4 {
     text-shadow: 1px 1px 1px black;
 }
 
+
 h5 {
     text-transform: uppercase;
     text-align: center;
@@ -49,10 +60,46 @@ h5 {
 }
 
 
+.container-fluid {
+    background-color: rgb(50, 108, 253);
+    text-transform: uppercase;
+    font-size: 1.25em;
+    color: white;
+    letter-spacing: 0.25rem;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 15px;
+    margin-right: 15px;
+}
 
 
+.flex-container-about {
+    display:inline-block;
+    flex-direction: column;
+    width: 650px;
+    text-align: justify;
+    line-height: 28px;
+    font-size: 20px;
+}
+
+.flex-container-about > h2 {
+    text-transform: uppercase;
+    text-align: justify;
+    font-size: 1.25em;
+    color: blue;
+    letter-spacing: 0.25rem;
+    text-shadow: 2px 1px 2px black;
+}
 
 
+.flex-container-contact {
+    display:inline-block;
+    flex-direction: column;
+    width: 650px;
+    text-align: justify;
+    line-height: 28px;
+    font-size: 20px;
+}
 
 
 .container-footer {
@@ -60,6 +107,14 @@ h5 {
     flex-direction: row;
     align-items: stretch;
     justify-content: space-around;
+}
+
+
+.home-pic img {
+    display: inline-block;
+    object-fit: cover;
+    object-position: center;
+    height: 63vh;
 }
 
 
@@ -77,4 +132,3 @@ footer a {
     margin: 0 10px;
     text-align: center;
 }
-
