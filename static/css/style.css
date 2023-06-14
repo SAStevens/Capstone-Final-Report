@@ -73,32 +73,62 @@ h5 {
 }
 
 
-.flex-container-about {
-    display:inline-block;
-    flex-direction: column;
-    width: 650px;
-    text-align: justify;
-    line-height: 28px;
-    font-size: 20px;
+.home-pic {
+    display: flex;
+    justify-content: center;
+    margin-top: 5em;
+    margin-bottom: 5em;
 }
 
-.flex-container-about > h2 {
-    text-transform: uppercase;
-    text-align: justify;
-    font-size: 1.25em;
-    color: blue;
-    letter-spacing: 0.25rem;
-    text-shadow: 2px 1px 2px black;
+
+.flex-container-about {
+    display: flex;
+    flex-direction: row;
+    text-align: left;
 }
+
+
+.flex-about-pic {
+    flex:1;
+    padding: 5px;
+}
+
+
+.flex-about-text {
+    flex:1;
+    padding: 5px;
+    text-transform: uppercase;
+    text-align: left;
+    font-size: 0.9rem;
+    font-style: italic;
+    font-weight: 800;
+    color: rgb(5, 5, 5);
+    letter-spacing: 0.05rem;
+}
+
 
 
 .flex-container-contact {
-    display:inline-block;
-    flex-direction: column;
-    width: 650px;
-    text-align: justify;
-    line-height: 28px;
-    font-size: 20px;
+    display: flex;
+    flex-direction: row;
+    text-align: left;
+}
+
+.flex-contact-text {
+    flex:1;
+    padding: 5px;
+    text-transform: uppercase;
+    text-align: left;
+    font-size: 1.1rem;
+    font-style: italic;
+    font-weight: 800;
+    color: rgb(5, 5, 5);
+    letter-spacing: 0.1rem;
+}
+
+.flex-contact-pic {
+    flex:1;
+    padding: 5px;
 }
 
 
@@ -107,14 +137,6 @@ h5 {
     flex-direction: row;
     align-items: stretch;
     justify-content: space-around;
-}
-
-
-.home-pic {
-    display: flex;
-    justify-content: center;
-    margin-top: 5em;
-    margin-bottom: 5em;
 }
 
 
