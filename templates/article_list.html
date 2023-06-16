@@ -5,7 +5,7 @@
 {% block content %}
 <h1>Old Dogs-New Tricks</h1>
 <h5>Who says old dogs can't learn new tricks?</h5>
-<br>
+<hr>
 <br>
 <br>
 {% for article in article_list %}
@@ -36,13 +36,6 @@
     {% endfor %}
   </div>
 </div>
-<!-- <div class="card-footer text-center text-muted">
-  {% if article.author.pk == request.user.pk %}
-    <a href="{% url 'article_edit' article.pk %}">Edit</a>
-    <a href="{% url 'article_delete' article.pk %}">Delete</a>
-  {% endif %}
-    <a href="{{ article.get_absolute_url }}">New Comment</a>
-</div> -->
 <br />
 {% endfor %}
 {% endblock content %}

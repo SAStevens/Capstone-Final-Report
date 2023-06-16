@@ -9,38 +9,19 @@
 {% if user.is_authenticated %}
 <h1>Old Dogs-New Tricks</h1>
 <h5>Who says old dogs can't learn new tricks?</h5>
+<hr>
 <br>
-<br>
-
     <h3>Hi {{ user.username }}...Good to have you back again!</h3>
     <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
+    <div class="login-pic">
+        <div>
+            <img width="800" src="{% static 'img/pic6.jpg' %}"> 
+        </div>
+    </div>
 {% else %}
     <h1>Old Dogs-New Tricks</h1>
     <h5>Who says old dogs can't learn new tricks?</h5>
-
+<hr>
     <div class="home-pic">
         <div>
             <img  width="700" src="{% static 'img/pic2.png' %}"> 
@@ -49,11 +30,8 @@
             <img  width="700" src="{% static 'img/pic3.png' %}"> 
         </div>
     </div>
-    
+<br>
+<br>
 {% endif %}
-<br>
-<br>
-<br>
-
 
 {% endblock content %}
