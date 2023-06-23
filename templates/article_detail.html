@@ -15,17 +15,22 @@
 </div>
 <p>
   {% if article.author.pk == request.user.pk %}
-    <a href="{% url 'article_edit' article.pk %}" class="btn btn-primary ml-2">Edit</a>
+    <a href="{% url 'article_edit' article.pk %}" class="btn btn-primary ml-2">Edit</a> &nbsp &nbsp
     <a href="{% url 'article_delete' article.pk %}" class="btn btn-danger ml-2">Delete</a>
+    {% else %}
+    <hr>
+    <div class="flex-like">
+        <button class="btn-up"><i class="fa-regular fa-thumbs-up"></i> Like This Post </button>
+    </div>
   {% endif %}
 </p>
 <hr>
-<h4>Comments</h4>
+<h4>Previous Comments</h4>
 {% for comment in article.comment_set.all %}
   <p>{{ comment.author }} &middot; {{ comment }}</p>
 {% endfor %}
 <hr>
-<h4>Add a comment</h4>
+<h4>Add a New Comment</h4>
 <form action="" method="post">
     {% csrf_token %}
     {{ form|crispy }}
