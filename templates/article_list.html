@@ -19,6 +19,15 @@
   </div>
   <div class="card-body">
     {{ article.body|truncatewords:70 }}
+    <hr>
+    {% if article.likes <= 0 %}
+    <p class="bg-danger text-white"> less than zero </p>
+    {% endif %}
+    {% if article.likes > 0 %}
+    <p class="bg-success text-white"> greater than zero </p>
+    {% endif %}
+    <p> Current Likes: {{ article.likes }}</p>
+    <hr>
     {% if article.author.pk == request.user.pk %}
       <a href="{% url 'article_edit' article.pk %}">Edit</a>
       <a href="{% url 'article_delete' article.pk %}">Delete</a>

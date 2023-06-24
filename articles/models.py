@@ -10,6 +10,7 @@ class Article(models.Model):
     author = models.ForeignKey(
         settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, null=True
     )
+    likes = models.IntegerField(default=0)
 
     def __str__(self):
         return self.title

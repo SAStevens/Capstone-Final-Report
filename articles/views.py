@@ -7,6 +7,8 @@ from django.views.generic.edit import UpdateView, DeleteView, CreateView
 
 from django.urls import reverse_lazy, reverse
 
+from django.shortcuts import redirect
+
 from .forms import CommentForm
 
 from .models import Article
@@ -89,3 +91,17 @@ class ArticleDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     def test_func(self):
         obj = self.get_object()
         return obj.author == self.request.user
+
+
+def like(request, pk):
+    article = Article.objects.get(pk=pk)
+    article.likes += 1
+    article.save()
+    return redirect(reverse("article_detail", kwargs={"pk": article.pk}))
+
+
+def dislike(request, pk):
+    article = Article.objects.get(pk=pk)
+    article.likes -= 1
+    article.save()
+    return redirect(reverse("article_detail", kwargs={"pk": article.pk}))

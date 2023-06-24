@@ -19,9 +19,26 @@
     <a href="{% url 'article_delete' article.pk %}" class="btn btn-danger ml-2">Delete</a>
     {% else %}
     <hr>
-    <div class="flex-like">
-        <button class="btn-up"><i class="fa-regular fa-thumbs-up"></i> Like This Post </button>
+    <div class="d-flex justify-content-evenly">
+      <form method="POST" action="{% url 'article_like' article.pk %}">
+        {% csrf_token %}
+        <div class="flex-like">
+            <button type="submit" class="btn-up"><i class="fa-regular fa-thumbs-up" >
+            </i>Like This Post </button>
+        </div>
+      </form>
+      <form method="POST" action="{% url 'article_dislike' article.pk %}">
+        {% csrf_token %}
+        <div class="flex-like">
+            <button type="submit" class="btn-down"><i class="fa-regular fa-thumbs-down" >
+            </i>Dislike This Post </button>
+        </div>
+      </form>
+      <p>
+        Likes {{ object.likes }}
+      </p>
     </div>
+
   {% endif %}
 </p>
 <hr>
