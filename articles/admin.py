@@ -16,6 +16,7 @@ class ArticleAdmin(admin.ModelAdmin):
         "title",
         "body",
         "author",
+        "likes",
     ]
 
 

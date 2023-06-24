@@ -24,18 +24,18 @@
         {% csrf_token %}
         <div class="flex-like">
             <button type="submit" class="btn-up"><i class="fa-regular fa-thumbs-up" >
-            </i>Like This Post </button>
+            </i>Like </button>
         </div>
       </form>
       <form method="POST" action="{% url 'article_dislike' article.pk %}">
         {% csrf_token %}
         <div class="flex-like">
             <button type="submit" class="btn-down"><i class="fa-regular fa-thumbs-down" >
-            </i>Dislike This Post </button>
+            </i>Dislike </button>
         </div>
       </form>
       <p>
-        Likes {{ object.likes }}
+        <h4>Like Count: {{ object.likes }} </h4>
       </p>
     </div>
 
