@@ -13,25 +13,32 @@
 <br>
     <h3>Hi {{ user.username }}...Good to have you back again!</h3>
     <br>
-    <div class="login-pic">
+    <div class="flex-container-login-pic">
         <div>
-            <img width="800" src="{% static 'img/pic6.jpg' %}"> 
+            <img width="750" src="{% static 'img/pic6.jpg' %}" class="wdn-stretch rounded-corners"> 
         </div>
     </div>
+<br>
 {% else %}
     <h1>Old Dogs-New Tricks</h1>
     <h5>Who says old dogs can't learn new tricks?</h5>
 <hr>
-    <div class="home-pic">
-        <div>
-            <img  width="700" src="{% static 'img/pic2.png' %}"> 
+<br>
+<br>
+    <div class="flex-container-home-pic">
+        <!-- <div>
+            <img  width="650" src="{% static 'img/pic2.png' %}" class="wdn-stretch rounded-corners"> 
         </div>
         <div>
-            <img  width="700" src="{% static 'img/pic3.png' %}"> 
+            <img  width="650" src="{% static 'img/pic3.png' %}" class="wdn-stretch rounded-corners"> 
+        </div> -->
+        <div>
+            <img  width="800" src="{% static 'img/pic9.webp' %}" class="wdn-stretch rounded-corners"> 
         </div>
     </div>
 <br>
 <br>
+
 {% endif %}
 
 {% endblock content %}

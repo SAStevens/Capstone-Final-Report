@@ -7,7 +7,8 @@
 
 
 body {
-    background-color: lightgray;
+    background-image: url(../img/pic10.jpg);
+
 }
 
 
@@ -96,27 +97,42 @@ h5 {
 
 
 
-.home-pic {
-    display: flex;
-    justify-content: center;
-    margin-top: 5em;
-    margin-bottom: 5em;
-}
-
-
-.login-pic {
+.flex-container-home-pic {
     display: flex;
     justify-content: center;
     margin-top: 2em;
     margin-bottom: 2em;
+    background-color: rgba(128, 128, 128, 0.424);
+    border: 1px solid rgb(135, 135, 135);
+    border-radius: 10px;
+    box-shadow: 3px 2px 4px rgb(87, 87, 87);
 }
+
+img.rounded-corners {
+    border-radius: 10px;
+}
+
+
+.flex-container-login-pic {
+    display: flex;
+    justify-content: center;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    background-color: rgba(128, 128, 128, 0.424);
+    border: 1px solid rgb(135, 135, 135);
+    border-radius: 10px;
+    box-shadow: 3px 2px 4px rgb(87, 87, 87);
+}
+
 
 .flex-container-about {
     display: flex;
     flex-direction: row;
     text-align: left;
-
-
+    background-color: white;
+    border: 1px solid rgb(135, 135, 135);
+    border-radius: 10px;
+    box-shadow: 3px 2px 4px rgb(87, 87, 87);
 }
 
 
@@ -128,9 +144,9 @@ h5 {
 
 .flex-about-text {
     flex:1;
-    padding: 5px;
+    padding: 5px 15px 0px 15px;
     text-transform: uppercase;
-    text-align: left;
+    text-align: justify;
     font-size: 0.9rem;
     font-style: italic;
     font-weight: 800;
@@ -145,12 +161,14 @@ h5 {
     flex-direction: row;
     text-align: left;
     background-color: white;
+    border: 1px solid rgb(135, 135, 135);
+    border-radius: 10px;
+    box-shadow: 3px 2px 4px rgb(87, 87, 87);
 }
 
 .flex-contact-text {
     flex:1;
-    padding: 5px;
-    padding-left: 15px;
+    padding: 15px;
     text-transform: uppercase;
     text-align: left;
     font-size: 1.1rem;
@@ -166,11 +184,21 @@ h5 {
 }
 
 
+.card {
+    border: 1px solid rgb(135, 135, 135);
+    border-radius: 10px;
+    box-shadow: 3px 2px 4px rgb(87, 87, 87);
+}
+
 .flex-container-reset {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    background-color: rgba(128, 128, 128, 0.424);
+    border: 1px solid rgb(135, 135, 135);
+    border-radius: 10px;
+    box-shadow: 3px 2px 4px rgb(87, 87, 87);
 }
 
 
