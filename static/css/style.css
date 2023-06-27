@@ -7,8 +7,10 @@
 
 
 body {
-    background-image: url(../img/pic10.jpg);
-
+    background-image: url(../img/pic11.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh;
 }
 
 
@@ -67,14 +69,12 @@ h5 {
     font-size: 1.25em;
     color: white;
     letter-spacing: 0.25rem;
-    margin-top: 5px;
-    margin-bottom: 5px;
+    margin-top: 10px;
     margin-left: 15px;
     margin-right: 15px;
     border: 1px solid blue;
     border-radius: 10px;
-
-
+    box-shadow: 3px 2px 4px rgb(87, 87, 87);
 }
 
 
@@ -99,9 +99,11 @@ h5 {
 
 .flex-container-home-pic {
     display: flex;
-    justify-content: center;
+    width: fit-content;
     margin-top: 2em;
     margin-bottom: 2em;
+    margin-left: auto;
+    margin-right: auto;
     background-color: rgba(128, 128, 128, 0.424);
     border: 1px solid rgb(135, 135, 135);
     border-radius: 10px;
@@ -115,9 +117,11 @@ img.rounded-corners {
 
 .flex-container-login-pic {
     display: flex;
-    justify-content: center;
+    width: fit-content;
     margin-top: 2em;
     margin-bottom: 2em;
+    margin-left: auto;
+    margin-right: auto;
     background-color: rgba(128, 128, 128, 0.424);
     border: 1px solid rgb(135, 135, 135);
     border-radius: 10px;
@@ -192,9 +196,9 @@ img.rounded-corners {
 
 .flex-container-reset {
     display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
     background-color: rgba(128, 128, 128, 0.424);
     border: 1px solid rgb(135, 135, 135);
     border-radius: 10px;
@@ -252,6 +256,7 @@ footer {
     margin-right: 15px;
     border: 1px solid blue;
     border-radius: 10px;
+    box-shadow: 3px 2px 4px rgb(87, 87, 87);
 }
 
 
