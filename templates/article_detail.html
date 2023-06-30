@@ -49,18 +49,17 @@
 {% endfor %}
 <hr>
 <h4>Add a New Comment</h4>
-<form action="" method="post">
-    {% csrf_token %}
-    {{ form|crispy }}
-  <button class="btn btn-success ml-2" type="submit">Save</button>
-</form>
+  <form action="" method="post">
+      {% csrf_token %}
+      {{ form|crispy }}
+    <button class="btn btn-success ml-2" type="submit">Save</button>
+  </form>
 <br>
 <br>
 <br>
 <div>
-  {% if article.author.pk == request.user.pk %}
-
-  {% endif %}
-    <!-- <p><a href="{% url 'article_list' %}" class="btn btn-outline-dark ml-2">View All Posts</a></p> -->
+  <p>
+    <a href="{% url 'article_list' %}" class="btn btn-outline-success ml-2">View All Posts</a>
+  </p>
 </div>
 {% endblock content %}
