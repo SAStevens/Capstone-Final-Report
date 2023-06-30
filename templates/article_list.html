@@ -49,10 +49,10 @@
         <a href="{{ article.get_absolute_url }}">Add Comment</a>
       <div class="flex-like-count">
       {% if article.likes <= 0 %}
-        <aside class="text-danger">Like Count: {{ article.likes }}</aside>
+        <aside class="text-danger">Like Count: {{ article.like_set.count }}</aside>
       {% endif %}
       {% if article.likes > 0 %}
-        <aside class="text-success">Like Count: {{ article.likes }}</aside>
+        <aside class="text-success">Like Count: {{ article.like_set.count }}</aside>
       {% endif %}
       </div>
     </div>

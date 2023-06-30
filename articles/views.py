@@ -7,11 +7,13 @@ from django.views.generic.edit import UpdateView, DeleteView, CreateView
 
 from django.urls import reverse_lazy, reverse
 
-from django.shortcuts import redirect
+from django.shortcuts import redirect, get_object_or_404, render
+
+from django.http import JsonResponse
 
 from .forms import CommentForm
 
-from .models import Article
+from .models import Article, Like, Comment
 
 
 class CommentGet(DetailView):
@@ -60,10 +62,23 @@ class ArticleListView(LoginRequiredMixin, ListView):
     template_name = "article_list.html"
 
 
-class ArticleDetailView(LoginRequiredMixin, View):
-    def get(self, request, *args, **kwargs):
-        view = CommentGet.as_view()
-        return view(request, *args, **kwargs)
+class ArticleDetailView(LoginRequiredMixin, DetailView):
+    model = Article
+    template_name = "article_detail.html"
+    context_object_name = "article"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        article = self.object
+        comments = Comment.objects.filter(article=article)
+        likes = Like.objects.filter(article=article, is_dislike=False)
+        dislikes = Like.objects.filter(article=article, is_dislike=True)
+        comment_form = CommentForm()
+        context["comments"] = comments
+        context["likes"] = likes
+        context["dislikes"] = dislikes
+        context["comment_form"] = comment_form
+        return context
 
     def post(self, request, *args, **kwargs):
         view = CommentPost.as_view()
@@ -93,15 +108,53 @@ class ArticleDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
         return obj.author == self.request.user
 
 
-def like(request, pk):
-    article = Article.objects.get(pk=pk)
-    article.likes += 1
-    article.save()
-    return redirect(reverse("article_detail", kwargs={"pk": article.pk}))
+def like_article(request, pk):
+    article = get_object_or_404(Article, pk=pk)
+    if Like.objects.filter(
+        user=request.user, article=article, is_dislike=False
+    ).exists():
+        return redirect(reverse("article_detail", kwargs={"pk": pk}))
+    existing_dislike = Like.objects.filter(
+        user=request.user, article=article, is_dislike=True
+    ).first()
+
+    if existing_dislike:
+        existing_dislike.delete()
+
+    like = Like(user=request.user, article=article, is_dislike=False)
+    like.save()
+
+    return redirect(reverse("article_detail", kwargs={"pk": pk}))
 
 
-def dislike(request, pk):
-    article = Article.objects.get(pk=pk)
-    article.likes -= 1
-    article.save()
-    return redirect(reverse("article_detail", kwargs={"pk": article.pk}))
+def dislike_article(request, pk):
+    article = get_object_or_404(Article, pk=pk)
+    if Like.objects.filter(
+        user=request.user, article=article, is_dislike=True
+    ).exists():
+        return redirect(reverse("article_detail", kwargs={"pk": pk}))
+    existing_like = Like.objects.filter(
+        user=request.user, article=article, is_dislike=False
+    ).first()
+
+    if existing_like:
+        existing_like.delete()
+
+    like = Like(user=request.user, article=article, is_dislike=True)
+    like.save()
+
+    return redirect(reverse("article_detail", kwargs={"pk": pk}))
+
+
+# def like(request, pk):
+#     article = Article.objects.get(pk=pk)
+#     article.likes += 1
+#     article.save()
+#     return redirect(reverse("article_detail", kwargs={"pk": article.pk}))
+
+
+# def dislike(request, pk):
+#     article = Article.objects.get(pk=pk)
+#     article.likes -= 1
+#     article.save()
+#     return redirect(reverse("article_detail", kwargs={"pk": article.pk}))

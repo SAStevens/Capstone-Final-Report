@@ -10,13 +10,18 @@ class Article(models.Model):
     author = models.ForeignKey(
         settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, null=True
     )
-    likes = models.IntegerField(default=0)
 
     def __str__(self):
         return self.title
 
     def get_absolute_url(self):
         return reverse("article_detail", kwargs={"pk": self.pk})
+
+
+class Like(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    article = models.ForeignKey(Article, on_delete=models.CASCADE)
+    is_dislike = models.BooleanField(default=False)
 
 
 class Comment(models.Model):

@@ -9,9 +9,9 @@
 <h5>Who says old dogs can't learn new tricks?</h5>
 <hr>
 <div class="article-entry">
-  <h2>{{ object.title }}</h2>
-  <p>by {{ object.author }} | {{ object.date }}</p>
-  <p>{{ object.body }}</p>
+  <h2>{{ article.title }}</h2>
+  <p>by {{ article.author }} | {{ article.date }}</p>
+  <p>{{ article.body }}</p>
 </div>
 <p>
   {% if article.author.pk == request.user.pk %}
@@ -20,14 +20,14 @@
     {% else %}
     <hr>
     <div class="d-flex justify-content-evenly">
-      <form method="POST" action="{% url 'article_like' article.pk %}">
+      <form method="POST" action="{% url 'like_article' article.pk %}">
         {% csrf_token %}
         <div class="flex-like">
             <button type="submit" class="btn-up"><i class="fa-regular fa-thumbs-up" >
             </i>Like </button>
         </div>
       </form>
-      <form method="POST" action="{% url 'article_dislike' article.pk %}">
+      <form method="POST" action="{% url 'dislike_article' article.pk %}">
         {% csrf_token %}
         <div class="flex-like">
             <button type="submit" class="btn-down"><i class="fa-regular fa-thumbs-down" >
@@ -35,7 +35,8 @@
         </div>
       </form>
       <p>
-        <h4>Like Count: {{ object.likes }} </h4>
+        <h4>Likes: {{ likes.count }} </h4>
+        <h4>Dislikes:  {{ dislikes.count }} </h4>
       </p>
     </div>
 

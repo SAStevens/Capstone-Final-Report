@@ -6,8 +6,8 @@ from .views import (
     ArticleDetailView,
     ArticleUpdateView,
     ArticleDeleteView,
-    like,
-    dislike,
+    like_article,
+    dislike_article,
 )
 
 urlpatterns = [
@@ -16,6 +16,6 @@ urlpatterns = [
     path("<int:pk>/", ArticleDetailView.as_view(), name="article_detail"),
     path("<int:pk>/edit/", ArticleUpdateView.as_view(), name="article_edit"),
     path("<int:pk>/delete/", ArticleDeleteView.as_view(), name="article_delete"),
-    path("like/<int:pk>", like, name="article_like"),
-    path("dislike/<int:pk>", dislike, name="article_dislike"),
+    path("like/<int:pk>", like_article, name="like_article"),
+    path("dislike/<int:pk>", dislike_article, name="dislike_article"),
 ]
