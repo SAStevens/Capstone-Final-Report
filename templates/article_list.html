@@ -18,35 +18,15 @@
       {{ article.date }}</span>
   </div>
 
-
-  <!-- <div class="card-body">
-    {{ article.body|truncatewords:70 }}
-    <hr>
-    {% if article.likes <= 0 %}
-    <p class="bg-danger text-white"> less than zero </p>
-    {% endif %}
-    {% if article.likes > 0 %}
-    <p class="bg-success text-white"> greater than zero </p>
-    {% endif %}
-    <p> Current Likes: {{ article.likes }}</p>
-    <hr>
-    {% if article.author.pk == request.user.pk %}
-      <a href="{% url 'article_edit' article.pk %}">Edit</a>
-      <a href="{% url 'article_delete' article.pk %}">Delete</a>
-    {% endif %}
-      <a href="{{ article.get_absolute_url }}">New Comment</a>
-  </div> -->
-
-
   <div class="card-body">
     {{ article.body|truncatewords:70 }}
     <hr>
     <div class="d-flex justify-content-evenly">
       {% if article.author.pk == request.user.pk %}
-        <a href="{% url 'article_edit' article.pk %}">Edit</a>
-        <a href="{% url 'article_delete' article.pk %}">Delete</a>
+        <a href="{% url 'article_edit' article.pk %}"><b>Edit</b></a>
+        <a href="{% url 'article_delete' article.pk %}"><b>Delete</b></a>
       {% endif %}
-        <a href="{{ article.get_absolute_url }}">Add Comment</a>
+        <a href="{{ article.get_absolute_url }}"><b>Add Comment</b></a>
       <!-- <div class="flex-like-count">
       {% if article.likes <= 0 %}
         <aside class="text-danger">Like Count: {{ article.like_set.count }}</aside>
