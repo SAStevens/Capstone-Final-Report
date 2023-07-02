@@ -1,54 +1,48 @@
 {% extends "base.html" %}
 
+{% load crispy_forms_tags %}
+
 {% block title %}Post Listings{% endblock title %}
 
 {% block content %}
-<h1>Old Dogs-New Tricks</h1>
+    <h1>Old Dogs-New Tricks</h1>
 <h5>Who says old dogs can't learn new tricks?</h5>
 <hr>
 <br>
 <br>
 {% for article in article_list %}
-<div class="card">
-  <div class="card-header">
-    <span class="fw-bold fst-italic">
-      <a href="{{ article.get_absolute_url }}">{{ article.title }}</a>
-    </span> &#8226;
-    <span class="text-muted">by {{ article.author }} |
-      {{ article.date }}</span>
-  </div>
-
-  <div class="card-body">
-    {{ article.body|truncatewords:70 }}
-    <hr>
-    <div class="d-flex justify-content-evenly">
-      {% if article.author.pk == request.user.pk %}
-        <a href="{% url 'article_edit' article.pk %}"><b>Edit</b></a>
-        <a href="{% url 'article_delete' article.pk %}"><b>Delete</b></a>
-      {% endif %}
-        <a href="{{ article.get_absolute_url }}"><b>Add Comment</b></a>
-      <!-- <div class="flex-like-count">
-      {% if article.likes <= 0 %}
-        <aside class="text-danger">Like Count: {{ article.like_set.count }}</aside>
-      {% endif %}
-      {% if article.likes > 0 %}
-        <aside class="text-success">Like Count: {{ article.like_set.count }}</aside>
-      {% endif %}
-      </div> -->
+  <div class="card">
+    <div class="card-header">
+      <span class="fw-bold fst-italic">
+        <a href="{{ article.get_absolute_url }}">{{ article.title }}</a>
+      </span> &#8226;
+      <span class="text-muted">by {{ article.author }} |
+        {{ article.date }}</span>
+    </div>
+    <div class="card-body">
+      {{ article.body|truncatewords:70 }}
+      <div class="d-flex justify-content-evenly">
+        {% if article.author.pk == request.user.pk %}
+          <a href="{% url 'article_edit' article.pk %}"><b>Edit</b></a>
+          <a href="{% url 'article_delete' article.pk %}"><b>Delete</b></a>
+        {% endif %}
+          <!-- <a href="{{ article.get_absolute_url }}"><b>Add Comment</b></a> -->
+      </div>
+    </div>
+    <div class="card-footer">
+      <div class="d-flex justify-content-evenly">
+        <u><b>Previous Comments:</b></u>
+      </div>
+      {% for comment in article.comment_set.all %}
+      <p>
+        <span class="fw-bold fst-italic">
+          {{ comment.author }} &#8226;
+        </span>
+        {{ comment }}
+      </p>
+      {% endfor %}
     </div>
   </div>
-
-  <div class="card-footer">
-    {% for comment in article.comment_set.all %}
-    <p>
-      <span class="fw-bold fst-italic">
-        {{ comment.author }} &#8226;
-      </span>
-      {{ comment }}
-    </p>
-    {% endfor %}
-  </div>
-</div>
 <br>
 <br>
 {% endfor %}

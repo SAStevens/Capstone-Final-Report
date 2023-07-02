@@ -1,33 +1,34 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Old Dogs-New Tricks</h1>
-<h5>Who says old dogs can't learn new tricks?</h5>
+    <h1>Old Dogs-New Tricks</h1>
+    <h5>Who says old dogs can't learn new tricks?</h5>
 <hr>
 <br>
-<h3>Are you sure you want to delete this Post?</h3>
+    <h3>Are you sure you want to delete this Post?</h3>
 <br>
 <br>
-<h4>{{ object.title }}</h4>
-<p>by {{ object.author }} | {{ object.date }}</p>
-<p>{{ object.body }}</p>
-<form action="" method="post">
-    {% csrf_token %}
-    <p>
-        <h3>Delete "{{ article.title }}" <button class="btn btn-danger ml-2" type="submit">Confirm</button></h3>
-    </p>
-</form>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+    <h4>{{ object.title }}</h4>
 
+    <p>by {{ object.author }} | {{ object.date }}</p>
+    <p>{{ object.body }}</p>
+    
+    <form action="" method="post">
+        {% csrf_token %}
+        <p>
+            <h3>Delete "{{ article.title }}" <button class="btn btn-danger ml-2" type="submit">Confirm</button></h3>
+        </p>
+    </form>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 {% endblock content %}

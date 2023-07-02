@@ -144,17 +144,3 @@ def dislike_article(request, pk):
     like.save()
 
     return redirect(reverse("article_detail", kwargs={"pk": pk}))
-
-
-# def like(request, pk):
-#     article = Article.objects.get(pk=pk)
-#     article.likes += 1
-#     article.save()
-#     return redirect(reverse("article_detail", kwargs={"pk": article.pk}))
-
-
-# def dislike(request, pk):
-#     article = Article.objects.get(pk=pk)
-#     article.likes -= 1
-#     article.save()
-#     return redirect(reverse("article_detail", kwargs={"pk": article.pk}))

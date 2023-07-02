@@ -5,62 +5,57 @@
 {% block title %} Post Details {% endblock title %}
 
 {% block content %}
-<h1>Old Dogs-New Tricks</h1>
+    <h1>Old Dogs-New Tricks</h1>
 <h5>Who says old dogs can't learn new tricks?</h5>
 <hr>
-<div class="article-entry">
-  <h2>{{ article.title }}</h2>
-  <p>by {{ article.author }} | {{ article.date }}</p>
-  <p>{{ article.body }}</p>
-</div>
-<p>
-  {% if article.author.pk == request.user.pk %}
-    <a href="{% url 'article_edit' article.pk %}" class="btn btn-primary ml-2">Edit</a> &nbsp &nbsp &nbsp &nbsp
-    <a href="{% url 'article_delete' article.pk %}" class="btn btn-danger ml-2">Delete</a>
-    {% else %}
-    <hr>
-    <div class="d-flex justify-content-evenly">
-      <form method="POST" action="{% url 'like_article' article.pk %}">
-        {% csrf_token %}
-        <div class="flex-like">
-            <button type="submit" class="btn-up"><i class="fa-regular fa-thumbs-up" >
-            </i> Like </button>
-        </div>
-      </form>
-      <form method="POST" action="{% url 'dislike_article' article.pk %}">
-        {% csrf_token %}
-        <div class="flex-like">
-            <button type="submit" class="btn-down"><i class="fa-regular fa-thumbs-down" >
-            </i> Dislike </button>
-        </div>
-      </form>
-      <p>
-        <h5>Likes: {{ likes.count }} </h5>
-        <h5>Dislikes:  {{ dislikes.count }} </h5>
-      </p>
-    </div>
-
-  {% endif %}
-</p>
+  <div class="article-entry">
+    <h2>{{ article.title }}</h2>
+    <p>by {{ article.author }} | {{ article.date }}</p>
+    <p>{{ article.body }}</p>
+  </div>
+  <p>
+    {% if article.author.pk == request.user.pk %}
+      <a href="{% url 'article_edit' article.pk %}" class="btn btn-primary ml-2">Edit</a> &nbsp &nbsp &nbsp &nbsp
+      <a href="{% url 'article_delete' article.pk %}" class="btn btn-danger ml-2">Delete</a>
+      {% else %}
+      <hr>
+      <div class="d-flex justify-content-evenly">
+        <form method="POST" action="{% url 'like_article' article.pk %}">
+          {% csrf_token %}
+          <div class="flex-like">
+              <button type="submit" class="btn-up"><i class="fa-regular fa-thumbs-up" >
+              </i> Like </button> &nbsp<b> {{ likes.count }} </b>
+          </div>
+        </form>
+        <form method="POST" action="{% url 'dislike_article' article.pk %}">
+          {% csrf_token %}
+          <div class="flex-like">
+              <button type="submit" class="btn-down"><i class="fa-regular fa-thumbs-down" >
+              </i> Dislike </button> &nbsp <b> {{ dislikes.count }} </b>
+          </div>
+        </form>
+      </div>
+    {% endif %}
+  </p>
 <hr>
-<h4>Previous Comments</h4>
+  <h4>Previous Comments</h4>
 {% for comment in article.comment_set.all %}
   <p>by {{ comment.author }} &#8226; {{ comment }}</p>
 {% endfor %}
 <hr>
-<h4>Add a New Comment</h4>
-  <form action method="post">
-    {% csrf_token %}
-    <div id="div_id_comment" class="mb-3">
-      <label for="id_comment" class="form-labe requiredField"></label>
-      <input type="text" name="comment" maxlength="140" class="textinput form-control" 
-      required id="id_comment" placeholder="Write your comment here">
+  <h4>Add a New Comment</h4>
+    <form action method="post">
+      {% csrf_token %}
+      <div id="div_id_comment" class="mb-3">
+        <label for="id_comment" class="form-labe requiredField"></label>
+        <input type="text" name="comment" maxlength="140" class="textinput form-control" 
+        required id="id_comment" placeholder="Write your comment here">
 <br>
-    </div class="comment-field">
-      <button class="btn btn-success ml-2" type="submit">Save</button> &nbsp &nbsp &nbsp &nbsp
-      <a href="{% url 'article_list' %}" class="btn btn-outline-success ml-2">View All Posts</a>
-    </div>
-  </form>
+      </div class="comment-field">
+        <button class="btn btn-success ml-2" type="submit">Save</button> &nbsp &nbsp &nbsp &nbsp
+        <a href="{% url 'article_list' %}" class="btn btn-outline-success ml-2">View All Posts</a>
+      </div>
+    </form>
 <br>
 <br>
 {% endblock content %}

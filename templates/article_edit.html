@@ -3,15 +3,15 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-<h1>Old Dogs-New Tricks</h1>
-<h5>Who says old dogs can't learn new tricks?</h5>
+  <h1>Old Dogs-New Tricks</h1>
+  <h5>Who says old dogs can't learn new tricks?</h5>
 <hr>
-<h2>Edit This Post</h2>
-<form action="" method="post">
-    {% csrf_token %}
-    {{ form|crispy }}
-  <button class="btn btn-info ml-2" type="submit">Update</button>
-</form>
+  <h2>Edit This Post</h2>
+  <form action="" method="post">
+      {% csrf_token %}
+      {{ form|crispy }}
+    <button class="btn btn-info ml-2" type="submit">Update</button>
+  </form>
 <br>
 <br>
 <br>
